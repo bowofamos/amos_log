@@ -5,7 +5,7 @@ setup(
     version='0.0.1',
     author='ganyu',
     author_email='amosbow@163.com',
-    url='https://github.com/bowofamos/amos#readme',
+    url='https://github.com/bowofamos/amos_log#readme',
     long_description=open('README.md', 'r').read(),
     long_description_content_type='text/markdown',
     description='Amos Logger',
