@@ -1,4 +1,5 @@
 from . import *
+import getpass
 
 
 class AmosLogFormatter(logging.Formatter):
@@ -13,5 +14,6 @@ class AmosLogFormatter(logging.Formatter):
             logging.ERROR: '\033[0;31m',
             logging.CRITICAL: '\033[0;35m'
         }
+        record.user = getpass.getuser()
         record.levelname = level_color.get(record.levelno) + record.levelname + '\033[0m'
         return super().format(record)

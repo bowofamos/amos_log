@@ -56,7 +56,7 @@ class AmosLogger(Logger):
         file_handler.extMatch = re.compile(r"^\d{4}-\d{2}-\d{2}.log$")
         file_handler.setFormatter(
             AmosLogFormatter(
-                "[%(asctime)s][%(process)d][%(levelname)s]-(%(filename)s:%(lineno)d) - %(message)s"
+                "[%(asctime)s]-[%(user)s]-[%(process)d][%(levelname)s]-(%(filename)s:%(lineno)d) - %(message)s"
             )
         )
         logger.addHandler(file_handler)
