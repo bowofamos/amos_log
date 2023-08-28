@@ -60,6 +60,6 @@ class AmosLogger(Logger):
             )
         )
         logger.addHandler(file_handler)
-        return logger
+        return {"logger": logger, "handler": file_handler}
 
 

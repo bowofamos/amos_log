@@ -43,7 +43,7 @@ from AmosLogger.AmosLogger import AmosLogger
 
 if __name__ == '__main__':
     amos_all_in_one_logger = AmosLogger(name='Test_Log')
-    amos_log = amos_all_in_one_logger.set_all_in_one_logger()
+    amos_log = amos_all_in_one_logger.set_all_in_one_logger()["logger"]
     amos_log.info("Info log")
     amos_log.warning("Warning log")
     amos_log.error("Error log")
@@ -54,4 +54,30 @@ if __name__ == '__main__':
 [2023-08-28 09:23:07,312][10550][INFO]-(main.py:20) - Info log
 [2023-08-28 09:23:07,312][10550][WARNING]-(main.py:21) - Warning log
 [2023-08-28 09:23:07,312][10550][ERROR]-(main.py:22) - Error log
+```
+
+## 3. Flask Usage
+```python
+from flask import Flask, Blueprint
+from AmosLogger.AmosLogger import AmosLogger
+
+amos_all_in_one_logger = AmosLogger(name='Flask_APP_Log')
+amos_handler = amos_all_in_one_logger.set_all_in_one_logger()["handler"]
+app = Flask(__name__)
+
+app.logger.addHandler(amos_handler)
+
+my_blueprint = Blueprint('my_blueprint', __name__)
+
+@my_blueprint.route('/')
+def index():
+    # 在蓝图中使用日志记录器
+    app.logger.info('Index page accessed')
+    return 'Hello, World!'
+
+# 将蓝图注册到应用程序中
+app.register_blueprint(my_blueprint)
+
+if __name__ == '__main__':
+    app.run()
 ```
