@@ -47,6 +47,7 @@ if __name__ == '__main__':
     amos_log.info("Info log")
     amos_log.warning("Warning log")
     amos_log.error("Error log")
+
 ```
 ```shell
 /var/log/Test_Log # tailf Test_Log
